@@ -36,13 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.black87,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const SizedBox(height: 8),
             CheckboxListTile(
-              title: Text("Pierwsze zadanie"),
-              subtitle: Container(
-                child: TextField(),
-              ),
+              title: const TextField(),
               value: isSelected[0],
               onChanged: (bool? value) {
                 setState(() {
@@ -56,10 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
-              title: Text("Drugie zadanie"),
-              subtitle: Container(
-                child: TextField(),
-              ),
+              title: const TextField(),
               value: isSelected[1],
               onChanged: (bool? value) {
                 setState(() {
@@ -73,10 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
-              title: Text("Trzecie zadanie"),
-              subtitle: Container(
-                child: TextField(),
-              ),
+              title: const TextField(),
               value: isSelected[2],
               onChanged: (bool? value) {
                 setState(() {
@@ -90,10 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
-              title: Text("Czwarte zadanie"),
-              subtitle: Container(
-                child: TextField(),
-              ),
+              title: const TextField(),
               value: isSelected[3],
               onChanged: (bool? value) {
                 setState(() {
@@ -107,10 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
-              title: Text("Piąte zadanie"),
-              subtitle: Container(
-                child: TextField(),
-              ),
+              title: const TextField(),
               value: isSelected[4],
               onChanged: (bool? value) {
                 setState(() {
