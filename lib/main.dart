@@ -25,22 +25,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool? firstQuest = false;
-  bool? secondQuest = false;
-  bool? thirdQuest = false;
-  bool? fourthQuest = false;
-  bool? fifthQuest = false;
-
-  // bool checkBoxValue1 = false;
-
+  List<bool> isSelected = [false, false, false, false, false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.amber,
         title: Text(widget.title),
       ),
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.black87,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,16 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
               subtitle: Container(
                 child: TextField(),
               ),
-              value: firstQuest,
+              value: isSelected[0],
               onChanged: (bool? value) {
                 setState(() {
-                  firstQuest = value;
+                  isSelected[0] = value!;
                 });
               },
-              activeColor: Colors.orange,
+              activeColor: Colors.black87,
               checkColor: Colors.white,
               controlAffinity: ListTileControlAffinity.leading,
-              tileColor: Colors.white,
+              tileColor: Colors.amber,
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
@@ -67,16 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {
               subtitle: Container(
                 child: TextField(),
               ),
-              value: secondQuest,
+              value: isSelected[1],
               onChanged: (bool? value) {
                 setState(() {
-                  secondQuest = value;
+                  isSelected[1] = value!;
                 });
               },
-              activeColor: Colors.orange,
+              activeColor: Colors.black87,
               checkColor: Colors.white,
               controlAffinity: ListTileControlAffinity.leading,
-              tileColor: Colors.white,
+              tileColor: Colors.amber,
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
@@ -84,16 +77,16 @@ class _MyHomePageState extends State<MyHomePage> {
               subtitle: Container(
                 child: TextField(),
               ),
-              value: thirdQuest,
+              value: isSelected[2],
               onChanged: (bool? value) {
                 setState(() {
-                  thirdQuest = value;
+                  isSelected[2] = value!;
                 });
               },
-              activeColor: Colors.orange,
+              activeColor: Colors.black87,
               checkColor: Colors.white,
               controlAffinity: ListTileControlAffinity.leading,
-              tileColor: Colors.white,
+              tileColor: Colors.amber,
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
@@ -101,16 +94,16 @@ class _MyHomePageState extends State<MyHomePage> {
               subtitle: Container(
                 child: TextField(),
               ),
-              value: fourthQuest,
+              value: isSelected[3],
               onChanged: (bool? value) {
                 setState(() {
-                  fourthQuest = value;
+                  isSelected[3] = value!;
                 });
               },
-              activeColor: Colors.orange,
+              activeColor: Colors.black87,
               checkColor: Colors.white,
               controlAffinity: ListTileControlAffinity.leading,
-              tileColor: Colors.white,
+              tileColor: Colors.amber,
             ),
             const SizedBox(height: 8),
             CheckboxListTile(
@@ -118,24 +111,31 @@ class _MyHomePageState extends State<MyHomePage> {
               subtitle: Container(
                 child: TextField(),
               ),
-              value: fifthQuest,
+              value: isSelected[4],
               onChanged: (bool? value) {
                 setState(() {
-                  fifthQuest = value;
+                  isSelected[4] = value!;
                 });
               },
-              activeColor: Colors.orange,
+              activeColor: Colors.black87,
               checkColor: Colors.white,
               controlAffinity: ListTileControlAffinity.leading,
-              tileColor: Colors.white,
+              tileColor: Colors.amber,
             ),
             const SizedBox(height: 24),
             Container(
               width: 200.0,
               height: 200.0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.white,
+                color: Colors.amber,
+              ),
+              child: Center(
+                child: Text("${isSelected.where((element) => element == true).length}/5",
+                  style: const TextStyle(
+                    fontSize: 80,
+                  ),
+                ),
               ),
             ),
           ],
