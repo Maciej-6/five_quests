@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'quest_cubit.dart';
-import 'quest_state.dart';
+import '../cubit/quest_cubit.dart';
+import '../cubit/quest_state.dart';
+import '../widgets/quest_list_item.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key, required this.title});
-
-  final String title;
-  final TextEditingController _controller = TextEditingController();
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('5 QUESTS HERO'),
+        title: const Text('5 QUESTS HERO'),
       ),
       body: Column(
         children: [
@@ -48,36 +46,7 @@ class HomePage extends StatelessWidget {
                   return ListView.builder(
                     itemCount: quests.length,
                     itemBuilder: (context, index) {
-                      final quest = quests[index];
-                      _controller.text = quest.title;
-
-                      return ListTile(
-                        title: TextFormField(
-                          initialValue: quest.title,
-                          decoration: InputDecoration(
-                            labelText: 'Quest ${index + 1}',
-                          ),
-                          onFieldSubmitted: (newTitle) {
-                            if (newTitle.isNotEmpty) {
-                              context
-                                  .read<QuestCubit>()
-                                  .editQuestTitle(index, newTitle);
-                            }
-                          },
-                        ),
-                        trailing: IconButton(
-                          icon: Icon(
-                            quest.isCompleted
-                                ? Icons.check_box
-                                : Icons.check_box_outline_blank,
-                          ),
-                          onPressed: () {
-                            context
-                                .read<QuestCubit>()
-                                .toggleQuestCompletion(index);
-                          },
-                        ),
-                      );
+                      return QuestListItem(index: index, quest: quests[index]);
                     },
                   );
                 } else if (state is QuestError) {
