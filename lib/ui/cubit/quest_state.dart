@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'quest_dto.dart';
+import '../../domain/entities/quest.dart';
 
 @immutable
 sealed class QuestState {}
