@@ -12,8 +12,12 @@ class QuestListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      tileColor: Colors.yellow[700],
       title: TextFormField(
-        initialValue: quest.title,
+        // initialValue: quest.title,
+        style: const TextStyle(
+          fontSize: 20,
+        ),
         decoration: InputDecoration(
           labelText: 'Quest ${index + 1}',
         ),
